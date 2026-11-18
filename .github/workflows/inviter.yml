@@ -20,4 +20,5 @@ jobs:
           ISSUE_TOKEN: ${{ github.token }}
           INVITE_TOKEN: ${{ secrets.ORG_INVITE_TOKEN }}
           ORG: IO-Denmark
+          TEAM_ID: "20760529"
           TILLADTE_DOMAENER: iodigital.com

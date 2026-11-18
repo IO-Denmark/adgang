@@ -37,7 +37,7 @@ fi
 
 if [ -n "$DRY" ]; then echo "INVITER: $mail"; svar "Invitationen er sendt."; ryd; exit 0; fi
 
-if out="$(GH_TOKEN="$INVITE_TOKEN" gh api -X POST "orgs/$ORG/invitations" -f email="$mail" -f role=direct_member 2>&1)"; then
+if out="$(GH_TOKEN="$INVITE_TOKEN" gh api -X POST "orgs/$ORG/invitations" -f email="$mail" -f role=direct_member -F "team_ids[]=${TEAM_ID:?}" 2>&1)"; then
   svar "Invitationen er sendt til den mail, du skrev. Åbn mailen fra GitHub og accepter. Mangler du en GitHub-bruger, så opret en gratis med den samme mail."
 else
   echo "Fejl fra GitHub: $out" >&2
