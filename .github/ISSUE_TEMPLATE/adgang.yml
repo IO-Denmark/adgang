@@ -1,0 +1,15 @@
+name: Adgang til iO's Claude-marketplace
+description: Få en invitation til iO's GitHub-organisation. Den sendes til din iO-mail.
+title: "Adgang"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Skriv din iO-mail herunder. Invitationen sendes til den mail og kan kun accepteres af den, der kan åbne den. Opgaven lukkes og mailen fjernes, så snart invitationen er sendt.
+  - type: input
+    id: mail
+    attributes:
+      label: Din iO-mail
+      placeholder: fornavn.efternavn@iodigital.com
+    validations:
+      required: true

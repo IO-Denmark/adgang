@@ -1,0 +1,23 @@
+name: Inviter til iO-organisationen
+on:
+  issues:
+    types: [opened]
+permissions:
+  issues: write
+concurrency:
+  group: inviter
+jobs:
+  inviter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/inviter.sh
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_NODE_ID: ${{ github.event.issue.node_id }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_TOKEN: ${{ github.token }}
+          INVITE_TOKEN: ${{ secrets.ORG_INVITE_TOKEN }}
+          ORG: IO-Denmark
+          TILLADTE_DOMAENER: iodigital.com
